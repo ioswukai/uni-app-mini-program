@@ -69,16 +69,18 @@ export default (
 		}
 		
 		const err = res.msg;
-		if (res.code == 401) {
-			// token过期报错，提示用户登录
-			errorHandle(err);
-			
-			// 弹出登录页面
-			redirectLogin()
-		} else if (res.code <= 0) {
+		 if (res.code <= 0) {
 			// 操作错误
 			errorHandle(err);
-		}
+		} 
+		// token失效的标识不知道
+		// else if (res.code == 401) {
+		// 	// token过期报错，提示用户登录
+		// 	errorHandle(err);
+			
+		// 	// 弹出登录页面
+		// 	redirectLogin()
+		// } 
 		
 		// 返回数据，
 		return res
