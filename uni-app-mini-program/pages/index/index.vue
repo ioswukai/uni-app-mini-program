@@ -8,7 +8,7 @@
 </template>
 
 <script>
-	import { getBanners } from '../../utils/api/news.js'
+	import { getBanners, isRequestSuccess } from '../../utils/api/news.js'
 	
 	export default {
 		data() {
@@ -25,7 +25,6 @@
 					s: 'httpapi',
 					id: this.globalConfig.network.bannerApiID,
 				})
-				console.log('banners = ', banners)
 			}
 		}
 	}

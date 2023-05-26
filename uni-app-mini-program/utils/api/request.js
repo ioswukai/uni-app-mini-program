@@ -8,6 +8,19 @@ import store from '../store/index.js'
 import network from '../globalConfig/network.js'
 import adapterDINGTALK from '../../utils/adapterDINGTALK/index.js'
 
+/**
+ * 判断网络请求是否成功
+ */
+export function isRequestSuccess(res) {
+	if (res.code <= 0) {
+		// 业务操作失败
+		return false;
+	}
+	
+	// 业务操作成功
+	return true;
+}
+
 /*
 * @param url 网址
 * @param method 请求方法，默认是'GET'
@@ -63,22 +76,7 @@ export default (
 		// 登录接口，存储登录信息
 		if(config.url.includes('&c=login')){ 
 			store.commit('setUser', res.data)
-		}
-		
-		const err = res.msg;
-		 if (res.code <= 0) {
-			// 操作错误
-			errorHandle(err);
 		} 
-		// token是根据密码来的，只有密码不变，token就不会过期
-		// 所以只用在退出登录，或更改密码时，清空下本地信息就可以了
-		// else if (res.code == 401) {
-		// 	// token过期报错，提示用户登录
-		// 	errorHandle(err);
-			
-		// 	// 弹出登录页面
-		// 	redirectLogin()
-		// } 
 		
 		// 返回数据，
 		return res
@@ -158,11 +156,33 @@ export default (
 		// 1. new Promise初始化promise实例的状态为pending
 		adapterDINGTALK.request({
 			...config, //对象解构
-			success: (res) => {	      
+			success: (res) => {	  
+				// 网络请求成功
 				res = beforeResponse(res)
-				resolve(res); // resolve修改promise的状态为成功状态resolved
+				
+				// 判断业务操作是否成功
+				const err = res.msg;
+				 if (isRequestSuccess(res) == false) {
+					// 业务操作失败
+					errorHandle(err);
+					reject(err); // reject修改promise的状态为失败状态 rejected
+				} 
+				// else if (res.code == 401) {
+				// token是根据密码来的，只有密码不变，token就不会过期
+				// 所以只用在退出登录，或更改密码时，清空下本地信息就可以了
+				// token过期报错，提示用户登录
+				// 	errorHandle(err);
+				// reject(err); // reject修改promise的状态为失败状态 rejected
+				// 	// 弹出登录页面
+				// 	redirectLogin()
+				// }
+				else {
+					// 业务操作成功
+					resolve(res); // resolve修改promise的状态为成功状态resolved
+				}
 			},
 			fail: (err) => {
+				// 网络请求失败
 				errorHandle(err);
 				reject(err); // reject修改promise的状态为失败状态 rejected
 			}
