@@ -1,12 +1,11 @@
 <!--
   文件描述：空的模板页面
   创建人：wk
-  #
 -->
 
 <template>
-	<view class="container">
-		<text>我是一个空的模板页面</text>
+	<view>
+		<text >我是空的模板页面</text>
 	</view>
 </template>
 
@@ -15,7 +14,7 @@
 // 例如：import 《组件名称》 from '《组件路径》';
 // 例如：import uploadFile from '@/components/uploadFile/uploadFile'
 
-import { getBanners } from '../../utils/api/news.js'
+import { isRequestSuccess } from '../../utils/api/news.js'
 
 
 export default {

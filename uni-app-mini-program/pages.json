@@ -5,6 +5,21 @@
 			"style": {
 				"enablePullDownRefresh": true
 			}
+		},
+		{
+			"path": "pages/appointment/index",
+			"style": {
+			}
+		},
+		{
+			"path": "pages/mapAndGuide/index",
+			"style": {
+			}
+		},
+		{
+			"path": "pages/mine/index",
+			"style": {
+			}
 		}
 	],
 	"tabBar": {
@@ -20,22 +35,22 @@
 				"text": "首页"
 			},
 			{
-				"pagePath": "pages/index/index",
+				"pagePath": "pages/appointment/index",
 				"iconPath": "/static/images/tab-topic.png",
 				"selectedIconPath": "/static/images/tab-topic-on.png",
-				"text": "栏目"
+				"text": "预约"
 			},
 			{
-				"pagePath": "pages/index/index",
+				"pagePath": "pages/mapAndGuide/index",
 				"iconPath": "/static/images/tab-rank.png",
 				"selectedIconPath": "/static/images/tab-rank-on.png",
-				"text": "排行"
+				"text": "导览"
 			},
 			{
-				"pagePath": "pages/index/index",
+				"pagePath": "pages/mine/index",
 				"iconPath": "/static/images/tab-find.png",
 				"selectedIconPath": "/static/images/tab-find-on.png",
-				"text": "搜索"
+				"text": "我的"
 			}
 		]
 	},
