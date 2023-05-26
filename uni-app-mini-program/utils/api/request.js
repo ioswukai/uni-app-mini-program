@@ -11,8 +11,7 @@ import adapterDINGTALK from '../../utils/adapterDINGTALK/index.js'
 /*
 * @param url 网址
 * @param method 请求方法，默认是'GET'
-* @param params Query中的请求参数，默认是空对象{}
-* @param data Body中的请求参数，默认是空对象{}
+* @param data 请求参数，默认是空对象{}
 * @param needAuth 请求是否需要携带token，默认是false不需要
 * @param needShowToast 请求报错后是否需要toast错误信息，默认是true需要toast错误信息
  */
@@ -20,7 +19,6 @@ export default (
     {
 	  url = network.host,
       method = 'GET',
-      params = {},
       data = {},
 	  needAuth = false,
 	  needShowToast = true,
@@ -36,7 +34,6 @@ export default (
 		let config = {}
 		config.method = method;
 		config.data = data;
-		config.params = params;
 		
 		// 配置header
 		const header = {};
@@ -121,7 +118,6 @@ export default (
 		} finally {
 			
 			// 打印信息
-			const params = (JSON.stringify(config.params) !== '{}') ? config.params : config.data;
 			let header = config.header
 			if (JSON.stringify(config.header) === '{}' 
 				&& config.headers) {
@@ -136,7 +132,7 @@ export default (
 			'\n>>>>网络请求地址:\n',
 			config.url,
 			'\n>>>>请求方式及请求参数:\n',
-			`${config.method} : ${JSON.stringify(params, null, 2)}`,
+			`${config.method} : ${JSON.stringify(config.data, null, 2)}`,
 			'\n>>>>返回结果\n',
 			res,
 			'\n===================================END===================================\n\n\n\n\n\n\n\n');

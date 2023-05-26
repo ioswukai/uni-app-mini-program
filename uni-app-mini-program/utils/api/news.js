@@ -7,8 +7,8 @@ import request from './request.js'
 /**
  * 获取banner轮播图
  */
-export const getBanners = params => {
+export const getBanners = data => {
   return request({
-    params
+    data
   })
 }

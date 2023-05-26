@@ -29,12 +29,6 @@ export default {
 		// 钉钉小程序只支持headers，清空header
 		config.headers = config.header;
 		config.header = {};
-		// 数据不支持params，只支持data，清空params
-		config.data = {
-			...params,
-		 	...data
-		}
-		config.params = {};
 		// 数据类型为json
 		config.dataType = 'json'
 		// #endif
