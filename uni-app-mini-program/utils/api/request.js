@@ -73,7 +73,8 @@ export default (
 			// 操作错误
 			errorHandle(err);
 		} 
-		// token失效的标识不知道
+		// token是根据密码来的，只有密码不变，token就不会过期
+		// 所以只用在退出登录，或更改密码时，清空下本地信息就可以了
 		// else if (res.code == 401) {
 		// 	// token过期报错，提示用户登录
 		// 	errorHandle(err);
