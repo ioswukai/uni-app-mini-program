@@ -6,6 +6,7 @@
 import store from '../store/index.js'
 // 获取网址信息
 import network from '../globalConfig/network.js'
+import adapterDINGTALK from '../../utils/adapterDINGTALK/index.js'
 
 /*
 * @param url 网址
@@ -32,7 +33,7 @@ export default (
 	// 请求拦截器，请求之前做的操作
 	function beforeRequest() {
 		// 获取请求配置对象，具体值参考uni-app文档
-		const config = {}
+		let config = {}
 		config.method = method;
 		config.data = data;
 		config.params = params;
@@ -48,6 +49,7 @@ export default (
 		   config.url += `&api_auth_code=${user.auth}&api_auth_uid=${user.uid}`
 		}
 		
+		config = adapterDINGTALK.httpConfig(config)
 		return config;
 	}
 	
@@ -88,8 +90,8 @@ export default (
 		logInfo(err, true)
 		
 		if (needShowToast) {
-			uni.showToast({
-				title: 'err',
+			adapterDINGTALK.showToast({
+				title: err,
 				position: 'center',
 				duration: 1000
 			});
@@ -117,11 +119,17 @@ export default (
 			
 			// 打印信息
 			const params = (JSON.stringify(config.params) !== '{}') ? config.params : config.data;
+			let header = config.header
+			if (JSON.stringify(config.header) === '{}' 
+				&& config.headers) {
+				 // 当header为空，且headers存在的时候
+				 header = config.headers;
+			}
 			console.log('\n==================================',
 			isError ? 'ERROR' : 'START',
-			'===================================\n',
-			'>>>>header:\n',
-			config.header,
+			'===================================',
+			'\n>>>>header:\n',
+			JSON.stringify(header, null, 2),
 			'\n>>>>网络请求地址:\n',
 			config.url,
 			'\n>>>>请求方式及请求参数:\n',
@@ -149,7 +157,7 @@ export default (
 		}
 		
 		// 1. new Promise初始化promise实例的状态为pending
-		uni.request({
+		adapterDINGTALK.request({
 			...config, //对象解构
 			success: (res) => {	      
 				res = beforeResponse(res)
@@ -159,6 +167,6 @@ export default (
 				errorHandle(err);
 				reject(err); // reject修改promise的状态为失败状态 rejected
 			}
-		  })
 		})
+	})  
 }  

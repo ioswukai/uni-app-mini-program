@@ -21,8 +21,8 @@
 		methods: {
 			async getBannersData() {
 				const banners = await getBanners({
-					's': 'httpapi',
-					'id': this.globalConfig.network.bannerApiID,
+					s: 'httpapi',
+					id: this.globalConfig.network.bannerApiID,
 				})
 				console.log('banners = ', banners)
 			}
