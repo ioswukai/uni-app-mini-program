@@ -8,7 +8,8 @@
 </template>
 
 <script>
-	import {getBanners} from '../../utils/api/news.js'
+	import { getBanners } from '../../utils/api/news.js'
+	
 	export default {
 		data() {
 			return {

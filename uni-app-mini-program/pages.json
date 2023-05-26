@@ -1,17 +1,59 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"enablePullDownRefresh": true
 			}
 		}
 	],
-	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+	"tabBar": {
+		"color": "#959595",
+		"selectedColor": "#118fff",
+		"borderStyle": "white",
+		"backgroundColor": "#ffffff",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "/static/images/tab-home.png",
+				"selectedIconPath": "/static/images/tab-home-on.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "/static/images/tab-topic.png",
+				"selectedIconPath": "/static/images/tab-topic-on.png",
+				"text": "栏目"
+			},
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "/static/images/tab-rank.png",
+				"selectedIconPath": "/static/images/tab-rank-on.png",
+				"text": "排行"
+			},
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "/static/images/tab-find.png",
+				"selectedIconPath": "/static/images/tab-find-on.png",
+				"text": "搜索"
+			}
+		]
 	},
-	"uniIdRouter": {}
+	"networkTimeout": {
+		"request": 10000,
+		"connectSocket": 10000,
+		"uploadFile": 10000,
+		"downloadFile": 10000
+	},
+	"sitemapLocation": "sitemap.json",
+	"resizable": false,
+	"globalStyle": {
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#fff",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarTextStyle": "black",
+		"pageOrientation": "auto",
+		"enablePullDownRefresh": false
+	},
+	"subPackages": []
 }
