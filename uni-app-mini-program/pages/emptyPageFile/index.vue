@@ -70,7 +70,7 @@ export default {
 	      // 1. 请求获取网络数据
 	      const results = await getListData({
 					page: this.page,
-					pagesize: this.globalConfig.network.pagesize,
+					pagesize: this.$globalConfig.network.pagesize,
 				});
 		  
 	      if (this.finished === false) {
@@ -167,8 +167,8 @@ export default {
   // 用户点击右上角分享
   onShareAppMessage: function () {
     return {
-      title: this.globalConfig.constKey.shareInfo.shareTitle,
-      path: this.globalConfig.constKey.shareInfo.homePath,
+      title: this.$globalConfig.constKey.shareInfo.shareTitle,
+      path: this.$globalConfig.constKey.shareInfo.homePath,
       success: function (res) {// 转发成功 回调
       },
       fail: function (res) {// 转发失败 回调

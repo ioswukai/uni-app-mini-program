@@ -10,7 +10,7 @@ export default {
 	 * 小程序分享，相关的key
 	 */
 	shareInfo: {
-		shareTitle: `${this.webSiteName}小程序,基于迅睿CMS框架构建`,
+		shareTitle: `${webSiteName}小程序,基于迅睿CMS框架构建`,
 		homePath: 'pages/index/index',
 	},
 	/**

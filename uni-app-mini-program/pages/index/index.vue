@@ -23,7 +23,7 @@
 			async getBannersData() {
 				const banners = await getBanners({
 					s: 'httpapi',
-					id: this.globalConfig.network.bannerApiID,
+					id: this.$globalConfig.network.bannerApiID,
 				})
 			}
 		}

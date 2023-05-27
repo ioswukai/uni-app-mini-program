@@ -1,6 +1,6 @@
 {
-    "name" : "uni-app-mini-program",
-    "appid" : "",
+    "name" : "uni-app-mini-program1",
+    "appid" : "__UNI__3F00FC2",
     "description" : "",
     "versionName" : "1.0.0",
     "versionCode" : "100",
@@ -68,5 +68,5 @@
     "uniStatistics" : {
         "enable" : false
     },
-    "vueVersion" : "3"
+    "vueVersion" : "2"
 }

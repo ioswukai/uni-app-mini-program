@@ -15,8 +15,6 @@ const baseInfo = {
 export default {
   // 基本网址
   host: `${baseInfo.domain}/index.php?v=1&appid=${baseInfo.xrAppid}&appsecret=${baseInfo.xrAppsecret}`,
-  // 网站名称
-  websiteName: 'uni-app文章类小程序demo',
   // 栏目的接口的id号
   categoryApiID: '2',
   // banner接口的id号

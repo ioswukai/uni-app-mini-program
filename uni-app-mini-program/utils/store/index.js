@@ -1,9 +1,11 @@
-import { createStore } from 'vuex'
+import Vue from 'vue'
+import Vuex from 'vuex'
 import { setItem, getItem } from './storage.js'
 import ConstKey from '../globalConfig/constKey.js'
 
+Vue.use(Vuex);
 
-export default createStore({
+export default new Vuex.Store({
   // 初始化数据
   state: {
     // 一个对象，存储用户信息，包含token和refreshToken等数据
