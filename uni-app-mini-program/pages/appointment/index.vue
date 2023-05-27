@@ -4,8 +4,8 @@
 -->
 
 <template>
-	<view>
-		<text >我是空的模板页面</text>
+	<view class="container">
+		<text>我是空的模板页面</text>
 	</view>
 </template>
 
