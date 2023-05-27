@@ -1,15 +1,28 @@
 {
-  "uni-app": {  
-      "scripts": {  
-          "mp-dingtalk": {   
-              "title":"钉钉小程序",   
-              "env": {   
-                  "UNI_PLATFORM": "mp-alipay"   
-              },  
-              "define": {   
-                  "MP-DINGTALK": true   
-              }  
-          }  
-      }  
-  }
+	"uni-app": {
+		"scripts": {
+			"mp-dingtalk": {
+				"title": "钉钉小程序",
+				"env": {
+					"UNI_PLATFORM": "mp-alipay"
+				},
+				"define": {
+					"MP-DINGTALK": true
+				}
+			}
+		}
+	},
+	"name": "uni-app-mini-program",
+	"version": "1.0.0",
+	"main": "main.js",
+	"directories": {
+		"lib": "lib"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"description": ""
 }
