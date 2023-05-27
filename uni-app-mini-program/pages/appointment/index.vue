@@ -100,6 +100,6 @@ export default {
 };
 </script>
 
-<style>
-@import "./index.css";
+<style scoped lang="scss">
+@import './index.scss';
 </style>
