@@ -122,18 +122,18 @@ export default (
 				 // 当header为空，且headers存在的时候
 				 header = config.headers;
 			}
-			console.log('\n==================================',
-			isError ? 'ERROR' : 'START',
-			'===================================',
-			'\n>>>>header:\n',
-			JSON.stringify(header, null, 2),
-			'\n>>>>网络请求地址:\n',
-			config.url,
-			'\n>>>>请求方式及请求参数:\n',
-			`${config.method} : ${JSON.stringify(config.data, null, 2)}`,
-			'\n>>>>返回结果\n',
-			res,
-			'\n===================================END===================================\n\n\n\n\n\n\n\n');
+			console.log('\n\n==================================',
+						isError ? 'ERROR' : 'START',
+						'===================================',
+						'\n>>>>header:\n',
+						JSON.stringify(header, null, 2),
+						'\n\n>>>>网络请求地址:\n',
+						config.url,
+						'\n\n>>>>请求方式及请求参数:\n',
+						`${config.method} : ${JSON.stringify(config.data, null, 2)}`,
+						'\n\n>>>>返回结果\n',
+						res,
+						'\n===================================END===================================\n\n\n\n\n\n\n\n');
 		}
 	}
 	

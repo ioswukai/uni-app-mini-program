@@ -5,7 +5,7 @@
 
 <template>
 	<view class="container">
-		<text>我是空的模板页面</text>
+		<u-message-input @change="change" @finish="finish"></u-message-input>
 	</view>
 </template>
 
@@ -36,11 +36,19 @@ export default {
 	  };
   },
   // 方法集合
-  methods: {},
+  methods: {
+	  change(e) {
+			console.log('内容改变，当前值为：' + e);
+		},
+	  finish(e) {
+			console.log('输入结束，当前值为：' + e);
+		},
+  },
   // 监听页面加载，其参数为上个页面传递的数据
   onLoad: function (options) {
 	  //打印出上个页面传递的参数。
 	  //  console.log(option.name); 
+	  console.log(this.$u.config.v);
   },
   // 监听页面显示。页面每次出现在屏幕上都触发，
   // 包括从下级页面点返回露出当前页面

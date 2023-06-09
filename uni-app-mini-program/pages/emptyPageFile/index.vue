@@ -54,11 +54,11 @@ export default {
   methods: {
 	  // 当下拉刷新的时候，会触发该函数
 	  // 触发时，isRefreshLoading会自动设置为true
-	  async refreshListData () {
+	  refreshListData () {
 		// 重置page
 		this.page = 1;
 	    // 还是调用loadListData方法，传递isRefreshAction=true
-	    await this.loadListData(true)
+	    this.loadListData(true)
 	  },
 	  
 	  // 初始化或滚动到底部的时候，会触发 loadListData事件
