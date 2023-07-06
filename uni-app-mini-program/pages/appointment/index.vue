@@ -14,7 +14,7 @@
 // 例如：import 《组件名称》 from '《组件路径》';
 // 例如：import uploadFile from '@/components/uploadFile/uploadFile'
 
-import { isRequestSuccess } from '../../utils/api/news.js'
+import request from '../../utils/api/request.js'
 
 
 export default {

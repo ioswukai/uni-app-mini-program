@@ -8,7 +8,8 @@
 </template>
 
 <script>
-	import { getBanners, isRequestSuccess } from '../../utils/api/news.js'
+	
+	import request from '../../utils/api/request.js'
 	
 	export default {
 		data() {
@@ -21,10 +22,12 @@
 		},
 		methods: {
 			async getBannersData() {
-				const banners = await getBanners({
-					s: 'httpapi',
-					id: this.$globalConfig.network.bannerApiID,
-				})
+				const data = {id: this.$globalConfig.network.bannerApiID}
+				const res = await request({data});
+				if (res.isResultCodeSuccess) {
+				  // 网络请求成功
+				  const banners = data.data;
+				}
 			}
 		}
 	}

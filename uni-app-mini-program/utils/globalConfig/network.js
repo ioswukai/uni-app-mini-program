@@ -15,9 +15,5 @@ const baseInfo = {
 export default {
   // 基本网址
   host: `${baseInfo.domain}/index.php?v=1&appid=${baseInfo.xrAppid}&appsecret=${baseInfo.xrAppsecret}`,
-  // 栏目的接口的id号
-  categoryApiID: '2',
-  // banner接口的id号
-  bannerApiID: '1',
   pagesize: '10',
 }

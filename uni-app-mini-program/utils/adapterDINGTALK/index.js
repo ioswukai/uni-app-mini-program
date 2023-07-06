@@ -45,17 +45,18 @@ export default {
 	 * toast内容
 	 */
 	showToast: (obj) => {
+		// 显示时长
+		obj.duration = 1000,
+		
 		// #ifdef MP-WEIXIN
 		// 微信
+		obj.position = 'center',
 		uni.showToast(obj);
 		// #endif
 		
 		// #ifndef MP-WEIXIN
 		// 非微信，即钉钉
-		// 没有position参数，content就是title参数
-		obj.position = null;
 		obj.content = obj.title;
-		obj.title = null;
 		dd.showToast(obj);
 		// #endif
 	},
