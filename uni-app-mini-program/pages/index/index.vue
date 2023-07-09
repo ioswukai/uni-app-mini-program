@@ -10,6 +10,7 @@
 <script>
 	
 	import request from '../../utils/api/request.js'
+import network from '../../utils/globalConfig/network.js';
 	
 	export default {
 		data() {
@@ -22,7 +23,34 @@
 		},
 		methods: {
 			async getBannersData() {
-				const data = {id: this.$globalConfig.network.bannerApiID}
+				// 公告资讯 列表
+				// const data = {
+				// 	s: 'news', 
+				// 	c: 'search', 
+				// 	// 公告资讯的栏目id
+				// 	catid: '13', 
+				// 	api_call_function: 'category_list',
+				// };
+				
+				// 新闻资讯 列表
+				// const data = {
+				// 	s: 'news', 
+				// 	c: 'search', 
+				// 	// 新闻资讯的栏目id
+				// 	catid: '42',
+				// 	page: 1,
+				// 	pagesize: network.pagesize,
+				// 	api_call_function: 'category_list',
+				// };
+				
+				// 详情页
+				const data = { 
+					c: 'show', 
+					// 文章id
+					id: '28', 
+					api_call_function: 'content_detail'}
+				
+				
 				const res = await request({data});
 				if (res.isResultCodeSuccess) {
 				  // 网络请求成功

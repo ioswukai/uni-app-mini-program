@@ -30,7 +30,7 @@ export function judgeIsCodeSuccess(res) {
  */
 export default ( 
     {
-	  url = '',
+	  url = '/index.php',
       method = 'GET',
       data = {},
 	  needAuth = false,
@@ -53,15 +53,14 @@ export default (
 		config.header = (method == 'POST') ? {...header, 'Content-Type': 'application/x-www-form-urlencoded'} : header;
 		
 		// 配置url
-		config.url = network.host + url;;
+		config.url = network.baseInfo.domain + url + '?v=1' +'&appid=' + network.baseInfo.xrAppid + '&appsecret=' + network.baseInfo.xrAppsecret;
+		
 		if (user && user.auth && user.uid) {
-		  // 用户已登录
+		  // 用户已登录 
 		   config.url += `&api_auth_code=${user.auth}&api_auth_uid=${user.uid}`
 		}
 		
 		config = adapterDINGTALK.httpConfig(config)
-		// 配置data
-		config.data.s = 'httpapi';	
 		return config;
 	}
 	

@@ -14,6 +14,6 @@ const baseInfo = {
 
 export default {
   // 基本网址
-  host: `${baseInfo.domain}/index.php?v=1&appid=${baseInfo.xrAppid}&appsecret=${baseInfo.xrAppsecret}`,
-  pagesize: '10',
+  baseInfo: baseInfo,
+  pagesize: 10,
 }
