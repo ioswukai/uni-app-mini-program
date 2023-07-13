@@ -51,6 +51,7 @@ export default {
 		// #ifdef MP-WEIXIN
 		// 微信
 		obj.position = 'center',
+		obj.icon = 'none',
 		uni.showToast(obj);
 		// #endif
 		

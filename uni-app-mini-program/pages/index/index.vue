@@ -23,6 +23,8 @@ import network from '../../utils/globalConfig/network.js';
 		},
 		methods: {
 			async getBannersData() {
+				let url = '/index.php';
+				let method = 'GET';
 				// 公告资讯 列表
 				// const data = {
 				// 	s: 'news', 
@@ -109,6 +111,21 @@ import network from '../../utils/globalConfig/network.js';
 				// 	api_call_function: 'wenda_category_content_list',
 				// };
 				
+				// 互动问答 创建接口
+				method = 'POST';
+				// catid=15 栏目id
+				url = '/index.php?s=wenda&c=post&catid=15';
+				const data = {
+					'data[uid]': 'admin',
+					'data[author]': '创始人',
+					'data[title]': '测试小程序接口，问答分类新建',
+					'data[price]': 0,
+					'data[description]': '描述：这次请求是用来第一次测试，小程序问答分类新建接口的',
+					'data[content]': '内容：我是问答的内容',
+					// 接口要求在post参数里也要传递catid参数
+					catid: 15,
+				};
+				
 				// 文章详情页
 				// const data = { 
 				// 	c: 'show', 
@@ -118,15 +135,14 @@ import network from '../../utils/globalConfig/network.js';
 				// }
 				
 				// 问答详情页
-				const data = { 
-					c: 'show', 
-					// 问答内容id
-					id: '25', 
-					api_call_function: 'wenda_content_detail',
-				}
+				// const data = { 
+				// 	c: 'show', 
+				// 	// 问答内容id
+				// 	id: '25', 
+				// 	api_call_function: 'wenda_content_detail',
+				// }
 				
-				
-				const res = await request({data});
+				const res = await request({url, data, method});
 				if (res.isResultCodeSuccess) {
 				  // 网络请求成功
 				  const banners = data.data;

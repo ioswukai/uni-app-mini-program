@@ -53,7 +53,13 @@ export default (
 		config.header = (method == 'POST') ? {...header, 'Content-Type': 'application/x-www-form-urlencoded'} : header;
 		
 		// 配置url
-		config.url = network.baseInfo.domain + url + '?v=1' +'&appid=' + network.baseInfo.xrAppid + '&appsecret=' + network.baseInfo.xrAppsecret;
+		if (url.includes('?')) {
+			// 已经有?号了，使用&号链接
+			config.url = network.baseInfo.domain + url + '&v=1' +'&appid=' + network.baseInfo.xrAppid + '&appsecret=' + network.baseInfo.xrAppsecret;
+		} else {
+			// 没有?
+			config.url = network.baseInfo.domain + url + '?v=1' +'&appid=' + network.baseInfo.xrAppid + '&appsecret=' + network.baseInfo.xrAppsecret;
+		}
 		
 		if (user && user.auth && user.uid) {
 		  // 用户已登录 
@@ -84,7 +90,7 @@ export default (
 	}
 	
 	// 异常处理器
-	function errorHandle(err) {
+	function errorHandle(err, isRequestSuccess = true) {
 		if (isRequestSuccess == false) {
 			// 网络请求失败
 			err = "网络出了个小差，请稍后再试"
